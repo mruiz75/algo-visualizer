@@ -3,6 +3,8 @@ import { getMergeSortAnimations } from "../algorithms/sorting/mergeSort";
 import "./sorting.css";
 import { getBubbleSortAnimations } from "../algorithms/sorting/bubbleSort";
 import { getSelectionSortAnimations } from "../algorithms/sorting/selectionSort";
+import { getInsertionSortAnimations } from "../algorithms/sorting/insertionSort";
+import { getQuickSortAnimations } from "../algorithms/sorting/quickSort";
 
 function SortingVisualizer() {
   const [array, setArray] = useState([]);
@@ -10,7 +12,7 @@ function SortingVisualizer() {
   function resetArray() {
     const newArray = [];
     for (let i = 0; i < 100; i++) {
-      newArray.push(randomIntFromInterval(5, 700));
+      newArray.push(randomIntFromInterval(5, 600));
     }
     setArray(newArray);
   }
@@ -88,23 +90,90 @@ function SortingVisualizer() {
     }
   }
 
+  function insertionSort() {
+    const animations = getInsertionSortAnimations(array);
+    for (let i = 0; i < animations.length; i++) {
+      const arrayBars = document.getElementsByClassName("array-bar");
+      const isColorChange = animations[i][2];
+      if (isColorChange) {
+        const [barOneIdx, barTwoIdx] = animations[i];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 2 === 0 ? "red" : "turquoise";
+        setTimeout(() => {
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+        }, i * 1);
+      } else {
+        setTimeout(() => {
+          const barOneIdx = animations[i][0];
+          const newHeight = animations[i][1];
+          const barOneStyle = arrayBars[barOneIdx].style;
+          barOneStyle.height = `${newHeight}px`;
+        }, i * 1);
+      }
+    }
+  }
+
+  function quickSort() {
+    const animations = getQuickSortAnimations(array);
+    for (let i = 0; i < animations.length; i++) {
+      const arrayBars = document.getElementsByClassName("array-bar");
+      const isColorChange = animations[i][2];
+      if (isColorChange) {
+        const [barOneIdx, barTwoIdx] = animations[i];
+        const barOneStyle = arrayBars[barOneIdx].style;
+        const barTwoStyle = arrayBars[barTwoIdx].style;
+        const color = i % 2 === 0 ? "red" : "turquoise";
+        setTimeout(() => {
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+        }, i * 1);
+      } else {
+        setTimeout(() => {
+          const barOneIdx = animations[i][0];
+          const newHeight = animations[i][1];
+          const barOneStyle = arrayBars[barOneIdx].style;
+          barOneStyle.height = `${newHeight}px`;
+        }, i * 1);
+      }
+    }
+  }
+
   return (
     <div className="array-container">
-      {array.map((value, idx) => (
-        <div
-          className="array-bar"
-          key={idx}
-          style={{
-            backgroundColor: "turquoise",
-            height: `${value}px`,
-          }}
-        ></div>
-      ))}
-      <p>test</p>
-      <button onClick={() => resetArray()}>Generate New Array</button>
-      <button onClick={() => mergeSort()}>Merge Sort</button>
-      <button onClick={() => bubbleSort()}>Bubble Sort</button>
-      <button onClick={() => selectionSort()}>Selection Sort</button>
+      <div class="button-section">
+        <button class="btn" onClick={() => resetArray()}>
+          Generate New Array
+        </button>
+        <button class="btn" onClick={() => mergeSort()}>
+          Merge Sort
+        </button>
+        <button class="btn" onClick={() => bubbleSort()}>
+          Bubble Sort
+        </button>
+        <button class="btn" onClick={() => selectionSort()}>
+          Selection Sort
+        </button>
+        <button class="btn" onClick={() => insertionSort()}>
+          Insertion Sort
+        </button>
+        <button class="btn" onClick={() => quickSort()}>
+          Quick Sort
+        </button>
+      </div>
+      <div className="bar-container">
+        {array.map((value, idx) => (
+          <div
+            className="array-bar"
+            key={idx}
+            style={{
+              backgroundColor: "turquoise",
+              height: `${value}px`,
+            }}
+          ></div>
+        ))}
+      </div>
     </div>
   );
 }
