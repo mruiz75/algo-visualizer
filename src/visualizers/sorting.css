@@ -1,6 +1,6 @@
 .array-container {
-  position: absolute;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
@@ -11,9 +11,7 @@
 }
 
 .button-section {
-  /* position: absolute;
-  top: 50%;
-  left: 50%; */
+  display: flex;
   text-align: center;
 }
 
