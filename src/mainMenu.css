@@ -1,0 +1,9 @@
+.main-menu {
+  min-width: 1000px;
+}
+
+.menu-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
