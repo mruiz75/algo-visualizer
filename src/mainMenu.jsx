@@ -1,3 +1,6 @@
+import { Route, NavLink, Routes } from "react-router-dom";
+import SortingVisualizer from "./components/visualizers/sorting";
+import PathFinderVisualizer from "./components/path-finders/pathFinderVisualizer";
 import "./mainMenu.css";
 
 function MainMenu() {
@@ -7,8 +10,8 @@ function MainMenu() {
         <h2>Algorithm Visualizer</h2>
       </div>
       <div className="menu-options">
-        <button>Path Finder Visualizer</button>
-        <button>Sorting Visualizer</button>
+        <NavLink to="/path-finder">Path Finder Visualizer</NavLink>
+        <NavLink to="/sorting">Sorting Visualizer</NavLink>
       </div>
     </div>
   );

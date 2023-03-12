@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { getMergeSortAnimations } from "../algorithms/sorting/mergeSort";
+import { getMergeSortAnimations } from "../../algorithms/sorting/mergeSort";
 import "./sorting.css";
-import { getBubbleSortAnimations } from "../algorithms/sorting/bubbleSort";
-import { getSelectionSortAnimations } from "../algorithms/sorting/selectionSort";
-import { getInsertionSortAnimations } from "../algorithms/sorting/insertionSort";
-import { getQuickSortAnimations } from "../algorithms/sorting/quickSort";
+import { getBubbleSortAnimations } from "../../algorithms/sorting/bubbleSort";
+import { getSelectionSortAnimations } from "../../algorithms/sorting/selectionSort";
+import { getInsertionSortAnimations } from "../../algorithms/sorting/insertionSort";
+import { getQuickSortAnimations } from "../../algorithms/sorting/quickSort";
 
 function SortingVisualizer() {
   const [array, setArray] = useState([]);
