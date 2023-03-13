@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { getMergeSortAnimations } from "../../algorithms/sorting/mergeSort";
-import "./sorting.css";
+import "./Sorting.css";
 import { getBubbleSortAnimations } from "../../algorithms/sorting/bubbleSort";
 import { getSelectionSortAnimations } from "../../algorithms/sorting/selectionSort";
 import { getInsertionSortAnimations } from "../../algorithms/sorting/insertionSort";

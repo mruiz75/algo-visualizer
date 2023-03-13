@@ -1,9 +1,9 @@
 import React from "react";
-import PathFinderVisualizer from "./components/path-finders/pathFinderVisualizer";
+import PathFinderVisualizer from "./components/PathFinder/Layout";
 import "./App.css";
 import MainMenu from "./mainMenu";
 import { Route, Routes } from "react-router";
-import Visualizer from "./components/visualizers/Visualizer";
+import Visualizer from "./components/SortingVisualizer/Layout";
 import ErrorPage from "./error-page";
 
 function App() {
