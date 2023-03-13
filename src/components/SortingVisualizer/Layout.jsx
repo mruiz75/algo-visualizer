@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
-import SortingVisualizer from "./sorting";
-import "./Visualizer.css";
+import SortingVisualizer from "./Sorting";
+import "./Layout.css";
 
 function Visualizer() {
   return (
