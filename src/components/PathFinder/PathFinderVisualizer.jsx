@@ -124,12 +124,14 @@ function PathFinderVisualizer() {
 
   return (
     <>
-      <button className="btn" onClick={() => visualizeDijkstra()}>
-        Visualize Dijkstra's Algorithm
-      </button>
-      <button className="btn" onClick={() => visualizeAStar()}>
-        Visualize A* Algorithm
-      </button>
+      <div class="button-section">
+        <button className="btn" onClick={() => visualizeDijkstra()}>
+          Visualize Dijkstra's Algorithm
+        </button>
+        <button className="btn" onClick={() => visualizeAStar()}>
+          Visualize A* Algorithm
+        </button>
+      </div>
       <div className="grid">
         {grid.map((row, rowIdx) => {
           return (
