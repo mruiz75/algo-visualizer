@@ -5,6 +5,7 @@ import {
   dijkstra,
   getNodesInShortestPathOrder,
 } from "../../algorithms/pathfinder/Dijkstra";
+import { aStar } from "../../algorithms/pathfinder/AStar";
 
 const START_NODE_ROW = 10;
 const START_NODE_COL = 15;
@@ -94,6 +95,17 @@ function PathFinderVisualizer() {
     }
   }
 
+  // function animateAStar(visitedNodesInOrder, nodesInShortestPathOrder) {
+  //   for(let i = 0; i <= visitedNodesInOrder.length; i++) {
+  //     if(i === visitedNodesInOrder.length) {
+  //       setTimeout(() => {
+  //         animateShortestPath(nodesInShortestPathOrder);
+  //       }, 10 * i);
+  //       return;
+  //     }
+  //   }
+  // }
+
   function visualizeDijkstra() {
     const startNode = grid[START_NODE_ROW][START_NODE_COL];
     const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
@@ -102,11 +114,24 @@ function PathFinderVisualizer() {
     animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
   }
 
+  function visualizeAStar() {
+    const startNode = grid[START_NODE_ROW][START_NODE_COL];
+    const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
+    const visitedNodesInOrder = aStar(grid, startNode, finishNode);
+    const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
+    animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
+  }
+
   return (
     <>
-      <button className="btn" onClick={() => visualizeDijkstra()}>
-        Visualize Dijkstra's Algorithm
-      </button>
+      <div class="button-section">
+        <button className="btn" onClick={() => visualizeDijkstra()}>
+          Visualize Dijkstra's Algorithm
+        </button>
+        <button className="btn" onClick={() => visualizeAStar()}>
+          Visualize A* Algorithm
+        </button>
+      </div>
       <div className="grid">
         {grid.map((row, rowIdx) => {
           return (

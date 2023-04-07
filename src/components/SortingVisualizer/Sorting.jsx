@@ -8,8 +8,10 @@ import { getQuickSortAnimations } from "../../algorithms/sorting/quickSort";
 
 function SortingVisualizer() {
   const [array, setArray] = useState([]);
+  const [arrayCreated, setArrayCreated] = useState(false);
 
   function resetArray() {
+    setArrayCreated(true);
     const newArray = [];
     for (let i = 0; i < 100; i++) {
       newArray.push(randomIntFromInterval(5, 600));
@@ -146,19 +148,39 @@ function SortingVisualizer() {
         <button class="btn" onClick={() => resetArray()}>
           Generate New Array
         </button>
-        <button class="btn" onClick={() => mergeSort()}>
+        <button
+          class="btn"
+          disabled={!arrayCreated}
+          onClick={() => mergeSort()}
+        >
           Merge Sort
         </button>
-        <button class="btn" onClick={() => bubbleSort()}>
+        <button
+          class="btn"
+          disabled={!arrayCreated}
+          onClick={() => bubbleSort()}
+        >
           Bubble Sort
         </button>
-        <button class="btn" onClick={() => selectionSort()}>
+        <button
+          class="btn"
+          disabled={!arrayCreated}
+          onClick={() => selectionSort()}
+        >
           Selection Sort
         </button>
-        <button class="btn" onClick={() => insertionSort()}>
+        <button
+          class="btn"
+          disabled={!arrayCreated}
+          onClick={() => insertionSort()}
+        >
           Insertion Sort
         </button>
-        <button class="btn" onClick={() => quickSort()}>
+        <button
+          class="btn"
+          disabled={!arrayCreated}
+          onClick={() => quickSort()}
+        >
           Quick Sort
         </button>
       </div>
