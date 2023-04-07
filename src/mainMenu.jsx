@@ -1,6 +1,6 @@
 import { Route, NavLink, Routes } from "react-router-dom";
-import SortingVisualizer from "./components/SortingVisualizer/Sorting";
-import PathFinderVisualizer from "./components/PathFinder/PathFinderVisualizer";
+// import SortingVisualizer from "./components/SortingVisualizer/Sorting";
+// import PathFinderVisualizer from "./components/PathFinder/PathFinderVisualizer";
 import "./mainMenu.css";
 
 function MainMenu() {
